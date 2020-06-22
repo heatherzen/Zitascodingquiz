@@ -10,5 +10,5 @@ h4El.textContent = 'Answer the following questions within the time allotted.  In
 h4El.setAttribute('style', 'font-size: 16px; text-align: center; width: 40%; margin: auto;');
 body.appendChild(h4El);
 
-var button = document.getElementById('.hidden');
-button.setAttribute('style', 'display: none;');
+var timerDisplay = document.getElementsByClassName("timer");
+timerDisplay.setAttribute('style', 'width:10%; display:flex; justify-content:flex-end; align-items:flex-start; margin:auto;');
