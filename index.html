@@ -6,16 +6,25 @@
     <title>Zita's Coding Quiz</title>
 </head>
 <body>
-    <p id ="timer" class ="timer">Timer:</p>
-    <p id ="viewhs" class ="viewhs">View High Scores</p>
+    <h1 id="title">Coding Quiz Challenge</h1>
+    <p id ="timer" class="timer">Timer: <span id="countdown">75</span></p>
+    <p id ="viewhs" class ="viewhs"></p>
+    <p id ="intro">Answer the following questions within the time allotted. Incorrect answers will deduct 10 seconds from the time given.</p>
+    <div id ="startquiz-container">
+        <button id="startquiz">Start Quiz</button>
+    </div>
+    <h2 id="question"></h2>
         
-        <button id="startquiz">Start Quiz!</button>
-
-                <button id= "choiceA" class= "choice hidden" value= "buttonA"></button>
-                <button id= "choiceB" class= "choice hidden" value = "buttonB"> </button>
-                <button id= "choiceC" class= "choice hidden" value = "buttonC"></button>
-                <button id= "choiceD"  class= "choice hidden" value = "buttonD"></button>
-            
+        <!--entire answer container-->
+        <div id="answer-container">
+            <!--choice buttons container-->
+            <div id="choice-options">
+                <button id= "choice1" class= "choice hidden" value= "1">A: </button>
+                <button id= "choice2" class= "choice hidden" value = "2">B:  </button>
+                <button id= "choice3" class= "choice hidden" value = "3">C: </button>
+                <button id= "choice4"  class= "choice hidden" value = "4">D: </button>
+            </div>    
+        </div>
 
     <script src="./script.js"></script>
 </body>
