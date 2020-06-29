@@ -16,5 +16,12 @@ var timerCountDown = document.querySelector("#countdown");
 var count = 75;
 
 
+//funtion for timer
 
-// startQuizBtn.addEventListener("click",
+var setCounterText = setInterval(function() {
+    timerCountDown.textContent = count;
+    count--;
+});
+setCounterText();
+
+
