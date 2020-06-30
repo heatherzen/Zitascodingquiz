@@ -14,13 +14,21 @@ var startQuizBtn = document.querySelector("#startquiz");
 var quesTion = document.querySelector("#question");
 var timerCountDown = document.querySelector("#countdown");
 var count = 75;
+ 
+var choiceQuest1 
+// Answer arrays
+// var answerArray1 = ["Curly braces", ".", "sets function equal to zero", "JavaScript"];
+// var answerArray2 = ["Brackets", "quotations", "sets variable before the for loop starts", "Windows"];
+// var answerArray3 = ["Parenthesis", "#", "grabs first element of an array in a for loop", "Chrome"];
+// var answerArray4 = ["Quotations", "$", "makes array equal to zero", "Dev Tools"];
 
-var answerArray1 = ["Curly braces", ".", "sets function equal to zero", ]
-//set variable functions for questions and answers into object array
-var questAns1 = function() {
+//set function for variables for questions and answers
+function(quesTion) {
     quesTion.textContent = "Arrays are enclosed by....?";
     buttonA1.addEventListener("click", fucntion) {
-        var ansWer1 = fucntion()
+        for (i=0, answerArray1.length, i++) {
+            answerArray1.querySelector('#')
+        }
     }
 }
 
