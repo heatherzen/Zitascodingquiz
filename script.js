@@ -10,48 +10,45 @@ var timerStyle = document.getElementById("timer").style = ("display: flex; justi
 
 
 // variables for functions
-var startQuizBtn = document.querySelector("#startquiz");
-var quesTion = document.querySelector("#question");
-var timerCountDown = document.querySelector("#countdown");
+var startQuizBtn = document.getElementById("#startquiz");
+var quesTion = document.getElementById("#question");
+var timerCountDown = document.getElementById("#countdown");
 var count = 75;
 var currentQuestion = 0;
 var scoRe = 0;
-var scoreBtn = document.
+var scoreBtn = document.getElementById("#viewhs");
+var getScore = document.getElementById("#results");
 // clear score with event listener
-restart
 
-// var choiceQuest1
-// Answer arrays
-// var answerArray1 = ["Curly braces", ".", "sets function equal to zero", "JavaScript"];
-// var answerArray2 = ["Brackets", "quotations", "sets variable before the for loop starts", "Windows"];
-// var answerArray3 = ["Parenthesis", "#", "grabs first element of an array in a for loop", "Chrome"];
-// var answerArray4 = ["Quotations", "$", "makes array equal to zero", "Dev Tools"];
+
 
 var questionArray = [
     {
-        question: "This is question 1",
-        choices: ["a", "b", "c", "d"],
-        answer: "b"
+        question: "Arrays are enclosed by...?",
+        choices: ["Curly braces", "Brackets", "Parenthesis", "Quotations"],
+        answer: "Brackets"
     },
     {
-        question2: "this is question 2",
-        choices: ["a", "b", "c", "d"],
-        answer: "c"
+        question: "What do you use to select something by it ID?",
+        choices: [".", "Quotations", "#", "$"],
+        answer: "#"
+    },
+    {
+        question: "What does i=0 in a for loop do?",
+        choices: ["sets function equal to zero", "makes array equal to zero", "sets variable to first element in array", "makes the entire for loop equal to zero"],
+        answer: "sets variable to first element in array"
+    },
+    {
+        question: "What is setInterval of a method of?",
+        choices: ["JavaScript", "Windows", "Chrome", "Dev Tools"],
+        answer: "Windows"
     }
 ]
 //need endgame function( set quiz inner html show score, create form for name and score, save score to localstorage)
 // function to clear localstorage  json stringify
 
 
-// //set function for variables for questions and answers
-// function(quesTion) {
-//     quesTion.textContent = "Arrays are enclosed by....?";
-//     buttonA1.addEventListener("click", fucntion) {
-//         for (i = 0, answerArray1.length, i++) {
-//             answerArray1.querySelector('#')
-//         }
-//     }
-// }
+
 
 //funtion for timer
 function setTime() {
@@ -100,5 +97,11 @@ function restartGame() {
 
 
 startQuizBtn.addEventListener("click", function () {
-})
+    startQuiz();
+});
 
+var endGame = function() {
+    if (questionArray = 0) {
+        
+    }
+}
