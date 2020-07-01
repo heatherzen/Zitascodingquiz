@@ -14,32 +14,91 @@ var startQuizBtn = document.querySelector("#startquiz");
 var quesTion = document.querySelector("#question");
 var timerCountDown = document.querySelector("#countdown");
 var count = 75;
- 
-var choiceQuest1 
+var currentQuestion = 0;
+var scoRe = 0;
+var scoreBtn = document.
+// clear score with event listener
+restart
+
+// var choiceQuest1
 // Answer arrays
 // var answerArray1 = ["Curly braces", ".", "sets function equal to zero", "JavaScript"];
 // var answerArray2 = ["Brackets", "quotations", "sets variable before the for loop starts", "Windows"];
 // var answerArray3 = ["Parenthesis", "#", "grabs first element of an array in a for loop", "Chrome"];
 // var answerArray4 = ["Quotations", "$", "makes array equal to zero", "Dev Tools"];
 
-//set function for variables for questions and answers
-function(quesTion) {
-    quesTion.textContent = "Arrays are enclosed by....?";
-    buttonA1.addEventListener("click", fucntion) {
-        for (i=0, answerArray1.length, i++) {
-            answerArray1.querySelector('#')
+var questionArray = [
+    {
+        question: "This is question 1",
+        choices: ["a", "b", "c", "d"],
+        answer: "b"
+    },
+    {
+        question2: "this is question 2",
+        choices: ["a", "b", "c", "d"],
+        answer: "c"
+    }
+]
+//need endgame function( set quiz inner html show score, create form for name and score, save score to localstorage)
+// function to clear localstorage  json stringify
+
+
+// //set function for variables for questions and answers
+// function(quesTion) {
+//     quesTion.textContent = "Arrays are enclosed by....?";
+//     buttonA1.addEventListener("click", fucntion) {
+//         for (i = 0, answerArray1.length, i++) {
+//             answerArray1.querySelector('#')
+//         }
+//     }
+// }
+
+//funtion for timer
+function setTime() {
+    var setCounter = setInterval(function () {
+        timerCountDown.textContent = count;
+        count--;
+
+        if (count <= 0) {
+            clearInterval(setCounter);
+            return endGame();
         }
+    }, 1000);
+};
+
+function startQuiz() {
+    displayQuestions();
+    setTime();
+}
+
+function displayQuestions() {
+    var questionList = questionArray [currentQuestion].choices.map((questions) => {
+        return `<button class="ansbtn" onclick="answerQuestion('${questions})">${questions}</button>`;
+    });
+    quiz.innerHTML = `${questionArray[currentQuestion].question}<br>${questionList.join("")}`;
+}
+
+function answerQuestion(selection) {
+    if (questionArray[currentQuestion].answer === selection) {
+        scoRe++;   
+    }
+    else {
+        count -= 10;
+    }
+    currentQuestion++;
+    if (currentQuestion === questionArray.length) {
+        return endGame()
     }
 }
 
-//funtion for timer
-var setCounter = setInterval(function() {
-    timerCountDown.textContent = count;
-    count--;
-});
-setCounter();
+function restartGame() {
+    count = 75;
+    currentQuestion = 0;
+    scoRe = 0;
+    startQuiz();
+}
 
-startQuizBtn.addEventListener("click", function() {
 
+startQuizBtn.addEventListener("click", function () {
 })
 
