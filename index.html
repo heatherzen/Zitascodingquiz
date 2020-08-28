@@ -11,7 +11,7 @@
     <p id ="viewhs" class ="viewhs">View High Score</p>
     <p id ="intro">Answer the following questions within the time allotted. Incorrect answers will deduct 10 seconds from the time given.</p>
     <div id ="startquiz-container">
-        <button id="startquiz">Start Quiz</button>
+        <button id="startquiz" onclick="startQuiz()">Start Quiz</button>
     </div>
     
         
@@ -20,14 +20,15 @@
             <h2 id="question" class="hidden"></h2>
             <!--choice buttons container-->
             <div id="choice-options">
-                <button id= "choice1" class= "choice hidden ansbtn" value= "1">A: </button>
-                <button id= "choice2" class= "choice hidden ansbtn" value = "2">B:  </button>
-                <button id= "choice3" class= "choice hidden ansbtn" value = "3">C: </button>
-                <button id= "choice4"  class= "choice hidden ansbtn" value = "4">D: </button>
+                <button id="choice1" class="choice hidden ansbtn" value="1">A: </button>
+                <button id="choice2" class="choice hidden ansbtn" value ="2">B:  </button>
+                <button id="choice3" class="choice hidden ansbtn" value ="3">C: </button>
+                <button id="choice4"  class="choice hidden ansbtn" value ="4">D: </button>
             </div>    
         </div>
 
-        <div id="quiz">
+        <div id="quiz" class= "hidden">
+            <h4 class='results-style'>Your Score is </h4>
             <div id="results"></div>
         </div>
 

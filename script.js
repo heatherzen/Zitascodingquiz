@@ -15,8 +15,8 @@ var quesTion = document.getElementById("#question");
 var timerCountDown = document.getElementById("#countdown");
 var count = 75;
 var currentQuestion = 0;
-var scoRe = 0;
-var scoreBtn = document.getElementById("#viewhs");
+var quizScore = 0;
+// var scoreBtn = document.getElementById("#viewhs");
 var getScore = document.getElementById("#results");
 // clear score with event listener
 
@@ -26,22 +26,22 @@ var questionArray = [
     {
         question: "Arrays are enclosed by...?",
         choices: ["Curly braces", "Brackets", "Parenthesis", "Quotations"],
-        answer: "Brackets"
+        answer: [1]
     },
     {
         question: "What do you use to select something by it ID?",
         choices: [".", "Quotations", "#", "$"],
-        answer: "#"
+        answer: [2]
     },
     {
         question: "What does i=0 in a for loop do?",
         choices: ["sets function equal to zero", "makes array equal to zero", "sets variable to first element in array", "makes the entire for loop equal to zero"],
-        answer: "sets variable to first element in array"
+        answer: [2]
     },
     {
         question: "What is setInterval of a method of?",
         choices: ["JavaScript", "Windows", "Chrome", "Dev Tools"],
-        answer: "Windows"
+        answer: [1]
     }
 ]
 //need endgame function( set quiz inner html show score, create form for name and score, save score to localstorage)
@@ -69,7 +69,7 @@ function startQuiz() {
 }
 
 function displayQuestions() {
-    var questionList = questionArray [currentQuestion].choices.map((questions) => {
+    var questionList = questionArray[currentQuestion].choices.map((questions) => {
         return `<button class="ansbtn" onclick="answerQuestion('${questions})">${questions}</button>`;
     });
     quiz.innerHTML = `${questionArray[currentQuestion].question}<br>${questionList.join("")}`;
@@ -77,7 +77,7 @@ function displayQuestions() {
 
 function answerQuestion(selection) {
     if (questionArray[currentQuestion].answer === selection) {
-        scoRe++;   
+        quizScore++;   
     }
     else {
         count -= 10;
@@ -91,8 +91,19 @@ function answerQuestion(selection) {
 function restartGame() {
     count = 75;
     currentQuestion = 0;
-    scoRe = 0;
+    quizScore = 0;
     startQuiz();
+}
+
+var endGame = function() {
+    if (questionArray = 0) {
+        localStorage.setItem("highScore", highScore);
+    }
+    
+}
+
+var viewScore = function() {
+    localStorage.getItem("getScore", getScore)
 }
 
 
@@ -100,8 +111,6 @@ startQuizBtn.addEventListener("click", function () {
     startQuiz();
 });
 
-var endGame = function() {
-    if (questionArray = 0) {
-        
-    }
-}
+getScore.addEventListener("click", function() {
+    viewScore();
+});
