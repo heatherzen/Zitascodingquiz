@@ -3,22 +3,25 @@ var body = document.body;
 // variables for style
 var myTitle = document.getElementById("title").style.textAlign = "center";
 var myIntro = document.getElementById("intro").style.textAlign = "center";
-var startQuiz = document.getElementById("startquiz-container").style.textAlign = "center";
+// var startQuizStyle = document.getElementById("startquiz-container").style.textAlign = "center";
 var myQuestion = document.getElementById("question").style.textAlign = "center";
-var questAnsStyle = document.getElementById("question-answer-container").style = ("text-align: center");
+var questAnsStyle = document.getElementById("question-answer-container");
+var ansStyle = document.querySelector(".answer-style");
 var timerStyle = document.getElementById("timer").style = ("display: flex; justify-content: flex-end; padding: 40px;");
+var hiddenQuestions = document.querySelector(".hidden").style = ("display: none;")
 
 
 // variables for functions
-var startQuizBtn = document.getElementById("#startquiz");
-var quesTion = document.getElementById("#question");
-var timerCountDown = document.getElementById("#countdown");
+var startQuizBtn = document.getElementById("startquiz");
+var quesTion = document.getElementById("question");
+var timerCountDown = document.getElementById("countdown");
 var count = 75;
 var currentQuestion = 0;
 var quizScore = 0;
 // var scoreBtn = document.getElementById("#viewhs");
-var getScore = document.getElementById("#results");
+var getScore = document.getElementById("results");
 // clear score with event listener
+var startQuizContainer = document.getElementById("startquiz-container");
 
 
 
@@ -64,13 +67,17 @@ function setTime() {
 };
 
 function startQuiz() {
+    console.log('something')
+    startQuizContainer.setAttribute("class", "hidden");
+    questAnsStyle.removeAttribute("class")
     displayQuestions();
     setTime();
 }
 
 function displayQuestions() {
-    var questionList = questionArray[currentQuestion].choices.map((questions) => {
-        return `<button class="ansbtn" onclick="answerQuestion('${questions})">${questions}</button>`;
+    var questionList = questionArray[currentQuestion].choices.map((questions, i) => {
+        console.log(i);
+        return `<button class="ansbtn" value=${i} onclick="answerQuestion('${questions})">${questions}</button>`;
     });
     quiz.innerHTML = `${questionArray[currentQuestion].question}<br>${questionList.join("")}`;
 }
@@ -83,9 +90,11 @@ function answerQuestion(selection) {
         count -= 10;
     }
     currentQuestion++;
+    answerQuestion();
     if (currentQuestion === questionArray.length) {
         return endGame()
     }
+
 }
 
 function restartGame() {
@@ -107,9 +116,12 @@ var viewScore = function() {
 }
 
 
-startQuizBtn.addEventListener("click", function () {
-    startQuiz();
-});
+// startQuizBtn.addEventListener("click", function () {
+//     console.log('random text');
+//     startQuiz();
+// });
+
+startQuizBtn.onclick = startQuiz;
 
 getScore.addEventListener("click", function() {
     viewScore();
